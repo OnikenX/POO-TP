@@ -1,0 +1,36 @@
+Autodromo
+
+*Pista
+*Garagem
+
+se um autodromo for destruido os carros ficam irremediavelmente danificados
+
+string nome(Unico)
+int distancia
+
+
+
+        Pista {
+                int N;
+                vetor para carros???
+               -> mantem controlo das pusições dos carros
+                ->O  carro  estará  numa  determinada posição a  partir  do  início  da  pista  (o  sítio  onde  está  nesse momento),  e  estará  num  determinado lugar(na  corrida),  sendo  o primeiro  lugar  o  que  vai  mais  à frente.
+                ->Permite que se meta um piloto no carro
+                ->Permite que a corrida comece
+                ->input para aumentar o tempo portanto ciclo controlado
+                ->Se ligar o sinal de emergencia: - move-se carro para garagem
+                                                                            -indica-se ao piloto para sair do carro
+                                                                            -corrida acaba para o piloto
+                ->permite terminar a corrida e move carros para garagem e os pilotos saem
+                ->Possui  um  mecanismo  para obter(“obter”≠ “mostrar” ) a informação relacionada  com uma  corrida,   indicando   se  ela  já  foi  iniciada   ou  não,   e,  em  caso  afirmativo,   detalhando   a classificação atual.
+            
+Exemplo 
+            Informação sobre a corrida noautódromoSilverstone (5000 m):
+            1. B Ferrari / Vettel (rápido) -5mAh, 290mAh -2410m –55m/s
+            2. D Mercedes / Hamilton (crazy) -5mAh, 350mAh -2300m –50m/s
+}
+
+    Garagem{ os veiculos aqui presentes não partecipam das corridas}
+                        
+                
+            

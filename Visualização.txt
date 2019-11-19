@@ -1,0 +1,19 @@
+Visualização
+
+->Ver a pontuação dos pilotos,  ordenada  de forma decrescente.
+
+->Ver  a  corrida  a  decorrer,  recorrendo  a  uma  biblioteca  auxiliar  para  controlo  da consola,  ou  outra  biblioteca  qualquer  à  escolha  dos  alunos  (exemplo:  Qt,  ncurses, outra).  Não é  preciso  ter  uma  interface  muito  elaborada –apenas  funcional  e  que permita  distinguir  os carros, ver onde estão de pelo seu posicionamento  na pista, etc.
+
+Letras minusculas = carro vazio
+
+Letras maiusculas = carro com pilotos
+
+pista -> linhas paralelas
+
+->A representação do carro na sua posição na pista pode ser feita de uma forma simples;   através   de   uma   regra   de   três   simples,   faz-se  corresponder   a dimensão  da pista ao número  de caracteres disponíveis  no ecrã
+
+
+->Os  eventos  que  dependam   de  uma  probabilidade,   deverão  ser registado s num logno  simulador. Este  log  poderá  ser  exibido  no  ecrã  atravésde  um comando (descrito  mais adiante) .
+
+-> possivel ver garagem e seu conteudo
+

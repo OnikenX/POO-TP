@@ -1,0 +1,21 @@
+Campeonato
+
+    Conjunto de Corridas (sempre em autodromos diferentes,uma de cada vez ou Campeonato  é  um  conceito por  si  só que agrega  um  conjunto  de  Autódromos  nos  quais  decorre  uma  corrida  em  cada  um  deles  por uma certa ordem.)
+
+    A  associação pilotos/carros  e os  autódromos  participantes  são  definidos  antes  do  início  do campeonato e não podem  ser modificados a meio
+
+    Carros não se reparam
+
+    10p -1o
+    5p -2o
+    2p-3o
+
+    É   necessário   definir   um   conjunto   de   carros,   pilotos   e   autódromos   para   umcampeonato. Esta é a "população" para as várias corridas. 
+
+    Devem  existir  mecanismos  para  efetuar  a  próxima  corrida,  ver  pontuações,  etc. (e outras funcionalidades  óbvias).
+
+    Deve ser possível ao campeonato propagar  comandos para os pistas,  carros e pilotos.
+
+    Toda esta funcionalidade  será acionada através de comandos do utilizador
+
+    cerca  da  organização  das  várias  entidades:  já  foi referido  para  a maior  parte  das  entidades  quem controla o quê  / quem  tem o quê. Para os casos omissos, pode assumir  que  o simulador  é, em última  análise,  quem  contém tudo.

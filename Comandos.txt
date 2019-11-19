@@ -1,0 +1,5 @@
+Comandos
+
+Modo 1 –Define  o  que existe:  carros,  autódromos,  condutores,  com  todas  as  suas  características. Também  deve ser possível  adicionar eretirar  quaisquer  destes  elementos,  assim  como fazer entrar  e sair  pilotos  em  carros. Será  possível  fazer  ainda,  backup/recuperação  para/da  memória  da  direção  geral de viação.
+
+Modo 2 –Simulação de um campeonato: o simulador  permite  escolher os autódromos e a sua ordem no campeonato. Todos os carros que tenham piloto participam  em todas corridas enquanto  estiverem em condições de participar.Deve ser mantida  uma pontuação para cada condutor.

@@ -1,0 +1,16 @@
+
+
+Modo 1
+
+        Ficheiro que contem os pilotos
+
+        <tipo(crazy,rapido ou surpresa)> <nome>
+
+
+        Ficheiro que contem os carros
+
+        <capacidadeInicial> <capacidadeMaxima> <marca> <modelo>
+
+        Ficheiro que contem os autodromos
+
+        <N> <comprimento> <nome>
