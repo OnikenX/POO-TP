@@ -1,3 +1,6 @@
+#ifndef CARRO_HPP_INCLUDED
+#define CARRO_HPP_INCLUDED
+
 //pode estar parado ou em movimento, quando neste deve ter uma volcidade(m/s)
 
 /*
@@ -34,10 +37,10 @@ um carro pode ficar irremediavelmente danificado, com isto ele fica imediatament
 class Carro{
 
     //possui marca(obigatorio) e modelo(def: "modelo base")
-    const std::string marca, modelo ="modelo base";
+    std::string marca, modelo ="modelo base";
 
     //a identificação dos carros é feita com letras(de a a z) automaticamente;???aqueles que estiverem a mais ficam com a letra '?' ????
-    const char id;
+    char id;
 
     //os carros são eletricos (enegia quantificada em mAh), deve estar parado para carregar, o carregamento é n e este tem de ser maior que zero; a capacidade maxima, que não é ultrapassada quando está a ser carregado, e a capacidade inicial são caracteristicas de quando este é fabricado.
     unsigned int energia, max_energia, start_energia;
@@ -45,16 +48,19 @@ class Carro{
     int volcidade;
 
 public:
-    Carro(string marca,string modelo = "base", int max_energia);
+    Carro(std::string marca, int max_energia, std::string modelo = "base");
 
     ~Carro();
     
-    int makecar();
+  Carro();
+  Carro(std::string, char, unsigned int , int);
 
     int travar();
     
     int acelarar();
 
-    int 
+    
 
 }
+
+#endif // CARRO_HPP_INCLUDED

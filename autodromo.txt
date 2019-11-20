@@ -8,12 +8,10 @@ se um autodromo for destruido os carros ficam irremediavelmente danificados
 string nome(Unico)
 int distancia
 
-
-
         Pista {
                 int N;
                 vetor para carros???
-               -> mantem controlo das pusições dos carros
+               -> mantem controlo das pussyções dos carros
                 ->O  carro  estará  numa  determinada posição a  partir  do  início  da  pista  (o  sítio  onde  está  nesse momento),  e  estará  num  determinado lugar(na  corrida),  sendo  o primeiro  lugar  o  que  vai  mais  à frente.
                 ->Permite que se meta um piloto no carro
                 ->Permite que a corrida comece
@@ -31,6 +29,3 @@ Exemplo
 }
 
     Garagem{ os veiculos aqui presentes não partecipam das corridas}
-                        
-                
-            
