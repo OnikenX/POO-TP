@@ -1,0 +1,8 @@
+called: g++
+	/home/jota/POO-TP
+	g++
+	main.cpp
+	-o
+	vroom
+	-g
+

@@ -27,31 +27,43 @@ bool cmpcmd ( char * longcmd, char * shortcmd, char * compare ) {
 
 int cmdlineprinc() {
     char  raw[200];
-    char * argv[10];
-    int argc = 0 ;
-    printf ( "Bem vindo a linha de comandos do gestor do msgdist,\n insira help ou h para pedir ajuda e dicas.\n" );
+    char * cmd[10];
+    int ncmd = 0 ;
+    std::cout << "Bem vindo a linha de comandos do gestor do msgdist,\n insira help ou h para pedir ajuda e dicas.\n";
     insere();
     while ( std::fgets ( raw,200, stdin ) ) {
         if ( raw[0]!='\n' ) {
-            argc=0;
+            ncmd=0;
             raw[std::strlen ( raw ) - 1] = '\0'; //trocar o \n por \0 para dizer o limite da cmd
-            argv[argc] = std::strtok ( raw, " " );
-            while ( ( argv[++argc] = std::strtok ( NULL," " ) ) !=NULL );
+            cmd[ncmd] = std::strtok ( raw, " " );
+            while ( ( cmd[++ncmd] = std::strtok ( NULL," " ) ) !=NULL );
 
 
-            //for ( int i = 0; i< argc; i++ ) printf ( "\nargv[%d] = %s \n", i, argv[i] );
+            //for ( int i = 0; i< ncmd; i++ ) printf ( "\nargv[%d] = %s \n", i, argv[i] );
+            std::cout << cmd[0];
 
-
-            if ( cmpcmd ( ( char * ) "shutdown", ( char * ) "s", argv[0] ) ) {
-                printf ( "\tight imma head out\n" );
+            /*if ( cmpcmd ( ( char * ) "shutdown", ( char * ) "s", cmd[0] ) ) {
+                std::cout << "\tight imma head out\n";
                 return 0;
-            } else  if ( cmpcmd ( ( char * ) "help", ( char * ) "h", argv[0] ) ) {
-                printf ( "    Comandos disponiveis:\n"
-                         "help ou h - - - - - - - este ecra\n"
-                         "shutdown ou s - - - - - terminar o sistema MSGDIST\n" );
-            } else
+            }
+            if ( cmpcmd ( ( char * ) "help", ( char * ) "h", cmd[0] ) ) {
+                std::cout << "    Comandos disponiveis:\n" <<
+                         "help ou h - - - - - - - este ecra\n" <<
+                         "shutdown ou s - - - - - terminar o sistema MSGDIST\n";
+            } 
+            if (cmpcmd ( ( char * ) "carro", ( char * ) "c", cmd[0] )) {
+                //chamar a criação do carro;
+            }
+            if (cmpcmd ( ( char * ) "piloto", ( char * ) "p", cmd[0] )) {
+                //chamar a criação do carro;
+            }
+            if (cmpcmd ( ( char * ) "autodromo", ( char * ) "a", cmd[0] )) {
+                //chamar a criação do carro;
+            }
+            else
                 //outros comandos
                 std::cout << "Comando " << argv[0] <<  "não encontrado.\n";
+                */
         }
         insere();
     }
@@ -61,9 +73,9 @@ int cmdlineprinc() {
 }
 
 
-int main ( /*int argc, char ** argv*/ ) {
+int main ( /*int ncmd, char ** argv*/ ) {
 
-    std::vector<crr> carros;
+    std::vector<Carro> carros;
     std::vector<plt> pilotos;
     
     cmdlineprinc();

@@ -21,13 +21,13 @@ class plt {
     //data de nascimento/fabricaçao do piloto
     const int n_dia, n_mes, n_ano;
 
-    crr * aconduzir = NULL;
+    Carro * aconduzir = NULL;
 
 private:
     plt ( std::string nome, int n_dia, int n_mes, int n_ano );
 
     //meter no carro e tirar do carro
-    int meter ( crr * ameter );
+    int meter ( Carro * ameter );
     int tirar();
 
 };

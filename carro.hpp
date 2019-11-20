@@ -35,7 +35,7 @@ um carro pode ficar irremediavelmente danificado, com isto ele fica imediatament
 #include <string>
 
 //carro
-class crr{
+class Carro{
 
     //possui marca(obigatorio) e modelo(def: "modelo base")
     std::string marca, modelo ="base";
@@ -52,18 +52,23 @@ class crr{
     int dano;
 
 public:
-    Carro(std::string marca, int max_energia, std::string modelo = "base");
+    Carro(std::string marc, unsigned int ide, std::string mod = "base");
 
     ~Carro();
     
-  Carro();
-Carro(std::string, std::string, char, unsigned int, unsigned int,unsigned int);
+
+    Carro();
+
+
+    Carro(std::string marc, std::string mod = "base", char ide, unsigned int ener, unsigned int maxen,unsigned int start_energia);
+
+    
     int travar();
     
     int acelarar();
 
     
 
-}
+};
 
 #endif // CARRO_HPP_INCLUDED

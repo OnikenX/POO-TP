@@ -2,7 +2,7 @@
 
 char CarroIdused = a;
 
-Carro::Carro(std::string, std::string, char, unsigned int, unsigned int,unsigned int){
+Carro::Carro(std::string marc, std::string mod = "base", char ide, unsigned int ener, unsigned int maxen,unsigned int start_energia){
     
 };
 
