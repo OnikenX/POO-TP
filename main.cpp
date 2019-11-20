@@ -10,10 +10,8 @@
 #include "piloto.hpp"
 #include "pista.hpp"
 */
-#include <string>
-#include <iostream>
-#include <cstring>
 
+#include "utils.hpp"
 
 int insere()
 {

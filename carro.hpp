@@ -45,7 +45,7 @@ class Carro{
     //os carros são eletricos (enegia quantificada em mAh), deve estar parado para carregar, o carregamento é n e este tem de ser maior que zero; a capacidade maxima, que não é ultrapassada quando está a ser carregado, e a capacidade inicial são caracteristicas de quando este é fabricado.
     unsigned int energia, max_energia, start_energia;
 
-    int volcidade;
+    int speed, maxspeed;
 
 public:
     Carro(std::string marca, int max_energia, std::string modelo = "base");
@@ -53,8 +53,7 @@ public:
     ~Carro();
     
   Carro();
-  Carro(std::string, char, unsigned int , int);
-
+Carro(std::string, std::string, char, unsigned int, unsigned int,unsigned int);
     int travar();
     
     int acelarar();
