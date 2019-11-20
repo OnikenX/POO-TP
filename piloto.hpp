@@ -5,14 +5,31 @@
 //os nomes sao unicos, na criacao esta propriadade tem de ser verificado como tal e se nao o for deve ser modada para que seja unica
 
 //
-#include <string>
+#ifndef PILOTO_HPP_INCLUDED
+#define PILOTO_HPP_INCLUDED
 
-class Piloto {
+#pragma once
+
+#include <string>
+#include "carro.hpp"
+
+//piloto
+class plt {
     //nome do piloto
     const std::string nome;
 
     //data de nascimento/fabricaçao do piloto
     const int n_dia, n_mes, n_ano;
 
-    Carro aconduzir;
-}
+    crr * aconduzir = NULL;
+
+private:
+    plt ( std::string nome, int n_dia, int n_mes, int n_ano );
+
+    //meter no carro e tirar do carro
+    int meter ( crr * ameter );
+    int tirar();
+
+};
+
+#endif // PILOTO_HPP_INCLUDED

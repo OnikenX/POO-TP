@@ -6,4 +6,7 @@
 #include <cstring>
 #include <vector>
 
+#include "carro.hpp"
+#include "piloto.hpp"
+
 #endif //UTILS_HPP

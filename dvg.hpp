@@ -8,7 +8,6 @@
 class dgv {
     std::vector<crr> carros;
     std::vector<plt> pilotos;
-    
-}
+};
 
 #endif //DVG_HPP
