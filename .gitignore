@@ -1,0 +1,5 @@
+nbproject/*
+*.swp
+*.o
+*.kdev4
+.kdev4/**
