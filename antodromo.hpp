@@ -7,6 +7,9 @@
 #include "piloto.hpp"
 //Antodromo
 class atd{
+    
+    
+}
 
     
 

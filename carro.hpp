@@ -32,41 +32,60 @@ um carro pode ficar irremediavelmente danificado, com isto ele fica imediatament
 */
 
 //um carro danificado nao aceita condutor
-#include <string>
+
+#include "utils.hpp"
 
 //carro
 class Carro{
 
     //possui marca(obigatorio) e modelo(def: "modelo base")
-    std::string marca, modelo ="base";
+    std::string marca, modelo;
 
     //a identificação dos carros é feita com letras(de a a z) automaticamente;???aqueles que estiverem a mais ficam com a letra '?' ????
     char id;
 
     //os carros são eletricos (enegia quantificada em mAh), deve estar parado para carregar, o carregamento é n e este tem de ser maior que zero; a capacidade maxima, que não é ultrapassada quando está a ser carregado, e a capacidade inicial são caracteristicas de quando este é fabricado.
-    unsigned int energia, max_energia, start_energia, speed = 0, maxspeed;
+    float energia, max_energia, start_energia, speed = 0, maxspeed;
     
     //dano do carro
         //0 - sem dano
-        //
+        //1 - com dano significativo cc
+        //2 - completamente destruido
+        //3 - ele nem deve chegar aqui porque no momento em que chega quer dizer que foi destruido ou inreparavel
     int dano;
-
+    void calculargasto();
 public:
-    Carro(std::string marc, unsigned int ide, std::string mod = "base");
-
-    ~Carro();
+    bool sinaldeemergencia = false;
+    //construturores
+    Carro(std::string marca, char id, float max_energia,float start_energia, std::string modelo = "modelo base");
     
-
-    Carro();
-
-
-    Carro(std::string marc, std::string mod = "base", char ide, unsigned int ener, unsigned int maxen,unsigned int start_energia);
-
+    //gets
+    char getid();
+    int getenergia();
+    int getmax_energia();
+    int getstart_energia();
+    int getspeed();
+    int getmaxspeed();
+    std::string stgetmarca();
+    std::string getmodelo();
     
+    
+    //funcoes funcionais
     int travar();
     
     int acelarar();
-
+    
+    //destrutores
+    ~Carro();
+    
+    int carregamento(int encher);
+    // IMPLEMENTAR O PROCESSO DE CARREGAMENTO //
+    
+    void andar(){
+        
+        calculargasto();
+        
+    }
     
 
 };

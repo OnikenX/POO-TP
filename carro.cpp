@@ -1,17 +1,76 @@
 #include "carro.hpp"
 
-char CarroIdused = a;
+//construtor
+Carro::Carro ( std::string marca, char id, unsigned int max_energia,unsigned int start_energia, std::string modelo)
+{
+    this->start_energia = this->energia = start_energia;
+    this->modelo = modelo;
+    this->max_energia = max_energia;
+    this->marca = marca;
+}
 
-Carro::Carro(std::string marc, std::string mod = "base", char ide, unsigned int ener, unsigned int maxen,unsigned int start_energia){
+//gets
+char Carro::getid(){
+    return this->id;
+}
+
+int Carro::getenergia()
+{
+    return this->energia;
+}
+
+int Carro::getmax_energia()
+{
+    return max_energia;
+}
+
+int Carro::getstart_energia()
+{
+    return start_energia;
+}
+
+int Carro::getspeed()
+{
+    return speed;
+}
+
+int Carro::getmaxspeed()
+{
+    return maxspeed;
+}
+
+int Carro::travar()  
+{
+        if(energia == 0)
+            --this->speed;
+    if ( this->speed > 0 ) {
+        --this->speed;
+        return 0;
+    }
+    return -1;
+}
+
+int Carro::acelarar()
+{
+    if(energia == 0)
+        return 0;
+    if ( this->speed < this->maxspeed ) {
+        ++this->speed;
+        return 0;
+    }
+    return -1;
+}
+
+int Carro::carregamento(int encher){
+    if (getspeed()>0)
+        return 1;
     
-};
-
-int Carro::travar(){
-    if(this->speed > 0){--this->speed;return 0;}
-    return -1;
+    if((energia += encher)> max_energia)
+        energia = max_energia;
+        return 0;
 }
 
-int Carro::acelarar(){
-    if (this->speed < this->maxspeed){++this->speed;return 0;}
-    return -1;
+void Carro::calculargasto(){
+    
 }
+

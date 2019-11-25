@@ -1,5 +1,0 @@
-DVG
-
-É  a  entidade  que  tem  o  registo  de  todos  os  carros  e  pilotos  e  a  responsável  direta  pela  existência  destes objetos. Será esta a entidade  alvo de backup  caso o utilizador  assim o determine  (ver na seção de comandos).
-
-Tem a informação de onde esta o carro então faz a conecção dos carros com autodromo por exemplo
