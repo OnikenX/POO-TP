@@ -1,12 +1,13 @@
 #include "carro.hpp"
 
 //construtor
-Carro::Carro ( std::string marca, char id, unsigned int max_energia,unsigned int start_energia, std::string modelo)
+Carro::Carro ( std::string marca, char id, float max_energia,float start_energia, std::string modelo)
 {
     this->start_energia = this->energia = start_energia;
     this->modelo = modelo;
     this->max_energia = max_energia;
     this->marca = marca;
+    this->speed = 0;
 }
 
 //gets
@@ -71,6 +72,8 @@ int Carro::carregamento(int encher){
 }
 
 void Carro::calculargasto(){
-    
+    if (energia > 0 || speed > 0)
+        energia = energia - (speed * 0.1);
 }
+
 

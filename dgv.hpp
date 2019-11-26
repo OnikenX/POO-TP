@@ -3,6 +3,7 @@
 #define DVG_HPP
 
 #include "utils.hpp"
+#include "carro.hpp"
 /*
         -------------- NOTAS DO JOTA ----------
 DVG
@@ -18,16 +19,17 @@ class dgv
     std::vector<Carro*> carros;
     std::vector<Piloto*> pilotos;
 public:
-    //criacao de um carro
     dgv();
     
-    //gerir carros
+    //                      gerir carros
+    //  criacao de um carro
     int criarcarro ( std::string marca, char id, unsigned int eneria, unsigned int max_energia,unsigned int start_energia, std::string modelo ="modelo base" );
     
     int rmcarro(char idcarro);
     
     //gerir pilotos
-    int criarpiloto ()
+    int criarpiloto (std::string nome,  int n_dia, int n_mes, int n_ano)
+    
 
 };
 

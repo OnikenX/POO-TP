@@ -11,6 +11,9 @@ dgv::dgv(){
         idusavel[i-'a']=i;
 }
 
+
+    //                      gerir carros
+    //  criacao de um carro
 int dgv::criarcarro ( std::string marca, char id, unsigned int eneria, unsigned int max_energia,unsigned int start_energia, std::string modelo )
 {
     //faz o id certo
@@ -46,5 +49,23 @@ int dgv::rmcarro(char idcarro){
     if(('a' <= idfromcar) && (idfromcar <= 'z'))
         idusavel[idfromcar - 'a'] = idfromcar;
 }
+
+
+//              gerir pilotos
+//criacao de um piloto
+int dgv::criarpiloto ( std::string nome, int n_dia, int n_mes, int n_ano )
+{
+
+    int i = 0;
+    auto it = pilotos.begin();
+    for (; it!= pilotos.end(); ++i , ++it){s
+        
+        
+    }
+    
+    
+    return 0;
+}
+    
 
 
