@@ -75,5 +75,3 @@ void Carro::calculargasto(){
     if (energia > 0 || speed > 0)
         energia = energia - (speed * 0.1);
 }
-
-

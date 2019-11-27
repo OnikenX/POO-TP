@@ -24,7 +24,7 @@ Modo 2 –Simulação de um campeonato: o simulador  permite  escolher os autód
     char  raw[200];
     char * cmd[10];
     int ncmd = 0 ;
-    std::cout << "Bem vindo a linha de comandos do gestor do msgdist,\n insira help ou h para pedir ajuda e dicas.\n";
+    std::cout << "Bem vindo a linha de comandos do VROOM,\n insira help ou h para pedir ajuda e dicas.\n";
     insere();
     while ( std::fgets ( raw,200, stdin ) ) {
         if ( raw[0]!='\n' ) {

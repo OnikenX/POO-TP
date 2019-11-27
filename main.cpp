@@ -9,7 +9,7 @@ bool cmpcmd ( char * longcmd, char * shortcmd, char * compare )
 
 
 
-int main ( int ncmd, char ** argv )
+int main ( int argc, char ** argv )
 {
     cmdlineprinc();
     return 0;

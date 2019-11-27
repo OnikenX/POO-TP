@@ -53,7 +53,13 @@ class Carro{
         //2 - completamente destruido
         //3 - ele nem deve chegar aqui porque no momento em que chega quer dizer que foi destruido ou inreparavel
     int dano;
+    
+    //autodromo em que pertence
+    atd * esta = NULL;
+    
     void calculargasto();
+
+
 public:
     bool sinaldeemergencia = false;
     //construturores
