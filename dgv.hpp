@@ -17,15 +17,17 @@ Tem a informação de onde esta o carro então faz a conecção dos carros com a
 class dgv
 {
     char idusavel[26];
+
+public:
+
     std::vector<Carro *> carros;
     std::vector<Piloto *> pilotos;
 
-public:
     dgv();
 
     //                      gerir carros
     //  criacao de um carro
-    int criarcarro(std::string marca,  float max_energia, float start_energia,int max_speed, std::string modelo);
+    int criarcarro(std::string marca, float max_energia, float start_energia, int max_speed, std::string modelo);
 
     int rmcarro(char idcarro);
 
@@ -41,7 +43,7 @@ public:
     //              display everything
     //mostrar todos os carros
     void mostratodosC();
-    
+
     //          save to files
     //
 };

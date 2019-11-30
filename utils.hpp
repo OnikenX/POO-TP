@@ -14,6 +14,7 @@
 //#include "autodromo.hpp"
 #include "carro.hpp"
 #include "piloto.hpp"
+#include "global.hpp"
 
 /*
 #include "carro.hpp"
@@ -21,6 +22,6 @@
 #include "dgv.hpp"
 */
 //mete um emoji a aponta para a zona de onde escrever
-int cmdlineprinc();
+int cmdlineprinc(global glbl);
 
 #endif //UTILS_HPP

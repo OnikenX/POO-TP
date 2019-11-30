@@ -11,7 +11,7 @@ int insere()
 }
 */
 
-int cmdlineprinc()
+int cmdlineprinc(global glbl)
 {
 /*
        --------  NOTAS -------------
@@ -69,24 +69,33 @@ Modo 2 –Simulação de um campeonato: o simulador  permite  escolher os autód
 
     string cmd,conheco;
     
-    cout << "comando> ";
+    std::cout << "comando> ";
     fflush(stdout);
-    getline(cin,cmd);
+    getline(std::cin,cmd);
     
     
-    istringstream bufi(cmd);
+    std::istringstream bufi(cmd);
 
-    ostringstream oss;
+    std::ostringstream oss;
     
-    string str,letraTipo,tipo,nomep,capacidadeInicial,capacidadeMaxima,marca,modelo,numeroC,comp,nomeA,nomepa,modeloA;
+    std::string str,letraTipo,tipo,nomep,capacidadeInicial,capacidadeMaxima,marca,modelo,numeroC,comp,nomeA,nomepa,modeloA,nomefich,letraCarro;
     string copia;
     while(bufi>>str){
         copia=str;
-        if(copia=="carregaP"){}
+        if(copia=="carregaP"){
+            bufi>>nomefich;
+            glbl.direcao.carregarP(nomefich);
+        }
             // <NomeFicheiro> vai buscar pilotos ao ficheiro ("tipo nome")
-        if(copia=="carregaC"){}
+        if(copia=="carregaC"){
+            bufi>>nomefich;
+            glbl.direcao.carregarC(nomefich);
+        }
             // <NomeFicheiro> vai buscar os carros ao ficheiro("capacidadeInicial capacidadeMaxima marca modelo")
-        if(copia=="carregaA"){}
+        if(copia=="carregaA"){
+            bufi>>nomefich;
+            glbl.carregarA(nomefich);
+        }
             // <NomeFicheiro> vai buscar os autodromos ao ficheiro("N comprimento nome")
         if(copia=="cria"){
             // <letraTipo>(p;c;a) <dados do objeto>(se c -> capacidadeInicial ;capacidadeMaxima ;marca ;modelo)
@@ -97,42 +106,64 @@ Modo 2 –Simulação de um campeonato: o simulador  permite  escolher os autód
                 oss << nomepa << " ";
                 nomep = oss.str();
                 }
-                cout<< tipo << endl << nomep; 
+                std::cout<< tipo << endl << nomep; 
             }
             if(letraTipo=="c"){
                 bufi>>capacidadeInicial;
+                // std::stoi( capacidadeInicial ); conversor String(s) to Int(i)
                 bufi>>capacidadeMaxima;
+                // std::stoi( capacidadeMaxima ); conversor String(s) to Int(i)
                 bufi>>marca;
                 while(bufi>>modeloA){
                 oss << modeloA << " ";
                 modelo = oss.str();
                 }
             }
-                cout << capacidadeInicial << endl << capacidadeMaxima << endl << marca << endl << modelo;
+                std::cout << capacidadeInicial << endl << capacidadeMaxima << endl << marca << endl << modelo;
         }
 
             if(letraTipo=="a"){
-                bufi>>numeroC;
+                bufi>>numeroC;// numero de carros
+                // std::stoi( numeroC ); conversor String(s) to Int(i)
                 bufi>>comp;
+                // std::stoi( comp ); conversor String(s) to Int(i)
                 bufi>>nomeA;
 
-                cout << numeroC << endl << comp << endl << nomeA;
+                //std::cout << numeroC << endl << comp << endl << nomeA;
             }
             if(copia=="apaga"){
                 bufi>>letraTipo;
-                if(letraTipo=="p"){}
-                if(letraTipo=="c"){}
+                if(letraTipo=="p"){
+                    while(bufi>>nomepa){
+                        oss << nomepa << " ";
+                        nomep = oss.str();
+                    }
+                }
+                if(letraTipo=="c"){
+                    bufi>>letraCarro;
+                }
+                if(letraTipo=="a"){
+                    bufi>>nomeA;
+                }
             }
             // <letraTipo> <identificador> (se c a letra dele ; se p ou a o nome)
-            if(copia=="entranocarro"){}
+            if(copia=="entranocarro"){
+                bufi>>letraCarro;
+                while(bufi>>nomepa){
+                        oss << nomepa << " ";
+                        nomep = oss.str();
+                    }
+            }
             // <letraCarro> <nomePiloto>
-            if(copia=="saidocarro"){}
+            if(copia=="saidocarro"){
+                bufi>>letraCarro;
+            }
             // <letraCarro>
             if(copia=="lista"){}
             // - Mostra no ecrã a informação relativa aos carros, aos pilotos e aos autódromos, bem
             // como quem está em que carro e mais o que for relevante saber acerca destas entidades.
             if(copia=="campeonato"){}
-            //cmdCamp(bufi,str);
+            //|comando para entrar no modo 2| cmdCamp(bufi,str);
     }
     return 0;    
 }

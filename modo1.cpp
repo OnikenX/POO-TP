@@ -1,5 +1,5 @@
 #include "utils.hpp"
-
+#include "global.hpp"
 //comparar comandos
 bool cmpcmd ( char * longcmd, char * shortcmd, char * compare )
 {
@@ -11,10 +11,11 @@ bool cmpcmd ( char * longcmd, char * shortcmd, char * compare )
 
 int main ( int argc, char ** argv )
 {
-    dgv a;
-    std::string carrosfile = "popos";
-    a.carregarC(carrosfile);
-    a.mostratodosC();
-    
+    global a;
+    cmdlineprinc(a);
+    //dgv a;
+    //std::string carrosfile = "popos";
+    //a.carregarC(carrosfile);
+    //a.mostratodosC();
 
 }

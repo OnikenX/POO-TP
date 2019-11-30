@@ -14,7 +14,8 @@ class atd
 
     //comprimento da pista
     int comprimento;
-
+    //maximo de carros aka N
+    int max_cars;
     //array de carros
     std::vector<Carro*> car_pertencentes;
 

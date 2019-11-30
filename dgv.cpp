@@ -87,7 +87,7 @@ int dgv::carregarC(std::string filename)
     std::string marca, modelo;
     float max_energia, start_energia;
     int max_speed;
-    while (fscanf(f, "%99[^\n] %f %f %d %99[^\n] ", marca_c, &start_energia, &max_energia, &max_speed, modelo_c) == 5)
+    while (fscanf(f, "%f %f %s %99[^\n]", marca_c, &start_energia, &max_energia, &max_speed, modelo_c) == 5)
     {
         //printf("%s %f %f %d %s",marca_c, start_energia, max_energia, max_speed, modelo_c);
         modelo = modelo_c;
@@ -103,6 +103,27 @@ int dgv::carregarC(std::string filename)
 
 int dgv::carregarP(std::string filename)
 {
+FILE *f = fopen(filename.c_str(), "r");
+    if (f == NULL)
+    {
+        printf("Erro a abrir ficheiro %s.\n", filename.c_str());
+        // erro 5 - erro a abrir o ficheiro
+        return 5;
+    }
+    int erro;
+
+    char tipo_p[20], nome_p[100];
+    std::string tipo, nome;
+    while (fscanf(f, "%s %99[^\n]", tipo_p,nome_p) == 2)
+    {
+        //printf("%s %s",tipo_p,nome_p);
+        tipo = tipo_p;
+        nome = nome_p;
+
+        if ((erro = criarpiloto(tipo,nome)) != 0)
+            return erro;
+    }
+    fclose(f);
 
     return 0;
 };
