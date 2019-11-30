@@ -1,5 +1,7 @@
 #include "utils.hpp"
 
+using namespace std;
+ /*
 int insere()
 {
     printf ( "\n" );
@@ -7,13 +9,12 @@ int insere()
     fflush ( stdout );
     return 0;
 }
-
+*/
 
 int cmdlineprinc()
 {
-
 /*
-       --------  NOTAS DO JOTA  -------------
+       --------  NOTAS -------------
     
     Comandos
 
@@ -21,6 +22,8 @@ Modo 1 –Define  o  que existe:  carros,  autódromos,  condutores,  com  todas
 
 Modo 2 –Simulação de um campeonato: o simulador  permite  escolher os autódromos e a sua ordem no campeonato. Todos os carros que tenham piloto participam  em todas corridas enquanto  estiverem em condições de participar.Deve ser mantida  uma pontuação para cada condutor.
 */
+
+/*
     char  raw[200];
     char * cmd[10];
     int ncmd = 0 ;
@@ -58,11 +61,83 @@ Modo 2 –Simulação de um campeonato: o simulador  permite  escolher os autód
             else
                 //outros comandos
                 std::cout << "Comando " << argv[0] <<  "não encontrado.\n";
-                */
+                
         }
         insere();
     }
+*/
 
+    string cmd,conheco;
+    
+    cout << "comando> ";
+    fflush(stdout);
+    getline(cin,cmd);
+    
+    
+    istringstream bufi(cmd);
 
-    return 0;
+    ostringstream oss;
+    
+    string str,letraTipo,tipo,nomep,capacidadeInicial,capacidadeMaxima,marca,modelo,numeroC,comp,nomeA,nomepa,modeloA;
+    string copia;
+    while(bufi>>str){
+        copia=str;
+        if(copia=="carregaP"){}
+            // <NomeFicheiro> vai buscar pilotos ao ficheiro ("tipo nome")
+        if(copia=="carregaC"){}
+            // <NomeFicheiro> vai buscar os carros ao ficheiro("capacidadeInicial capacidadeMaxima marca modelo")
+        if(copia=="carregaA"){}
+            // <NomeFicheiro> vai buscar os autodromos ao ficheiro("N comprimento nome")
+        if(copia=="cria"){
+            // <letraTipo>(p;c;a) <dados do objeto>(se c -> capacidadeInicial ;capacidadeMaxima ;marca ;modelo)
+            bufi>>letraTipo;
+            if(letraTipo=="p"){
+                bufi>>tipo;
+                while(bufi>>nomepa){
+                oss << nomepa << " ";
+                nomep = oss.str();
+                }
+                cout<< tipo << endl << nomep; 
+            }
+            if(letraTipo=="c"){
+                bufi>>capacidadeInicial;
+                bufi>>capacidadeMaxima;
+                bufi>>marca;
+                while(bufi>>modeloA){
+                oss << modeloA << " ";
+                modelo = oss.str();
+                }
+            }
+                cout << capacidadeInicial << endl << capacidadeMaxima << endl << marca << endl << modelo;
+        }
+
+            if(letraTipo=="a"){
+                bufi>>numeroC;
+                bufi>>comp;
+                bufi>>nomeA;
+
+                cout << numeroC << endl << comp << endl << nomeA;
+            }
+            if(copia=="apaga"){
+                bufi>>letraTipo;
+                if(letraTipo=="p"){}
+                if(letraTipo=="c"){}
+            }
+            // <letraTipo> <identificador> (se c a letra dele ; se p ou a o nome)
+            if(copia=="entranocarro"){}
+            // <letraCarro> <nomePiloto>
+            if(copia=="saidocarro"){}
+            // <letraCarro>
+            if(copia=="lista"){}
+            // - Mostra no ecrã a informação relativa aos carros, aos pilotos e aos autódromos, bem
+            // como quem está em que carro e mais o que for relevante saber acerca destas entidades.
+            if(copia=="campeonato"){}
+            //cmdCamp(bufi,str);
+    }
+    return 0;    
 }
+        
+    
+    
+
+

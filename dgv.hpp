@@ -4,6 +4,7 @@
 
 #include "utils.hpp"
 #include "carro.hpp"
+#include "piloto.hpp"
 /*
         -------------- NOTAS DO JOTA ----------
 DVG
@@ -16,21 +17,33 @@ Tem a informação de onde esta o carro então faz a conecção dos carros com a
 class dgv
 {
     char idusavel[26];
-    std::vector<Carro*> carros;
-    std::vector<Piloto*> pilotos;
+    std::vector<Carro *> carros;
+    std::vector<Piloto *> pilotos;
+
 public:
     dgv();
-    
+
     //                      gerir carros
     //  criacao de um carro
-    int criarcarro ( std::string marca, char id, unsigned int eneria, unsigned int max_energia,unsigned int start_energia, std::string modelo ="modelo base" );
-    
-    int rmcarro(char idcarro);
-    
-    //gerir pilotos
-    int criarpiloto (std::string nome,  int n_dia, int n_mes, int n_ano)
-    
+    int criarcarro(std::string marca,  float max_energia, float start_energia,int max_speed, std::string modelo);
 
+    int rmcarro(char idcarro);
+
+    //gerir pilotos
+    int criarpiloto(std::string nome, int n_dia, int n_mes, int n_ano);
+
+    //          carregamento de files
+    //carrega carros
+    int carregarC(std::string filename);
+    //carrega pilotos
+    int carregarP(std::string filename);
+
+    //              display everything
+    //mostrar todos os carros
+    void mostratodosC();
+    
+    //          save to files
+    //
 };
 
 #endif //DVG_HPP

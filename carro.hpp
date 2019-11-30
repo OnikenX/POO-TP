@@ -45,8 +45,8 @@ class Carro{
     char id;
 
     //os carros são eletricos (enegia quantificada em mAh), deve estar parado para carregar, o carregamento é n e este tem de ser maior que zero; a capacidade maxima, que não é ultrapassada quando está a ser carregado, e a capacidade inicial são caracteristicas de quando este é fabricado.
-    float energia, max_energia, start_energia, speed = 0, maxspeed;
-    
+    float energia, max_energia, start_energia, speed = 0;
+    int max_speed;
     //dano do carro
         //0 - sem dano
         //1 - com dano significativo cc
@@ -55,7 +55,7 @@ class Carro{
     int dano;
     
     //autodromo em que pertence
-    atd * esta = NULL;
+   // atd * esta = NULL;
     
     void calculargasto();
 
@@ -63,7 +63,7 @@ class Carro{
 public:
     bool sinaldeemergencia = false;
     //construturores
-    Carro(std::string marca, char id, float max_energia,float start_energia, std::string modelo = "modelo base");
+    Carro(std::string marca, char id, float max_energia,float start_energia, int max_speed, std::string modelo = "modelo base");
     
     //gets
     char getid();
@@ -74,6 +74,9 @@ public:
     int getmaxspeed();
     std::string stgetmarca();
     std::string getmodelo();
+
+    //get as string func
+    void getasstring();
     
     
     //funcoes funcionais

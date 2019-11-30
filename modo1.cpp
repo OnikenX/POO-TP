@@ -11,6 +11,10 @@ bool cmpcmd ( char * longcmd, char * shortcmd, char * compare )
 
 int main ( int argc, char ** argv )
 {
-    cmdlineprinc();
-    return 0;
+    dgv a;
+    std::string carrosfile = "popos";
+    a.carregarC(carrosfile);
+    a.mostratodosC();
+    
+
 }

@@ -59,11 +59,18 @@ class Piloto{
     Carro * aconduzir = NULL;
 
 public:
-    Piloto ( std::string nome, int n_dia, int n_mes, int n_ano );
+    Piloto(std::string nome, int n_dia, int n_mes, int n_ano);
 
     //meter no carro e tirar do carro
     int meter ( Carro * ameter );
     int tirar();
+
+
+    //estafucnao da o nome
+    std::string getnome();
+    //esta funcao guarda num array de 3 inteiros a data de nacimento do piloto 
+    void getnasc(int nasc[3]);
+
 
 };
 

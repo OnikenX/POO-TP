@@ -7,11 +7,10 @@
 #include "dgv.hpp"
 #include "carro.hpp"
 #include "piloto.hpp"
-#include "antodromo.hpp"
 
 class global{
     dgv direcao;
-    vector<atd*> antodromos;
+   // vector<atd*> autodromos;
     
     
     
