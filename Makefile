@@ -1,11 +1,14 @@
+all: vroom
 
-all: 
-	$(info apenas o "modo1" e "test" estam disponivel para compilar)
+vroom: dgv.o carro.o piloto.o global.o main.o autodromo.o
+	g++ main.o carro.o global.o dgv.o piloto.o autodromo.o -o vroom $(CXXFLAGS)
 
+%.o: %.cpp
+	$(CXX) -c $< $(CXXFLAGS)
 
-modo1: modo1.cpp carro.cpp global.cpp dgv.cpp piloto.cpp
-	$(info compiling modo 1)
-	g++ modo1.cpp carro.cpp global.cpp dgv.cpp piloto.cpp  -o modo1 -g
+debug: CXXFLAGS += -g -Wall
+debug: vroom
 
-test:
-	clear && g++ utils.cpp modo1.cpp -o vroom -g && echo compilacao completa &&./vroom && echo
+clear:
+	rm *.o vroom
+

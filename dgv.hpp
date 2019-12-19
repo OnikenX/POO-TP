@@ -1,8 +1,8 @@
-
 #ifndef DVG_HPP
 #define DVG_HPP
 
-#include "utils.hpp"
+#include <vector>
+#include <string>
 #include "carro.hpp"
 #include "piloto.hpp"
 /*
@@ -20,8 +20,8 @@ class dgv
 
 public:
 
-    std::vector<Carro *> carros;
-    std::vector<Piloto *> pilotos;
+    std::vector<Carro*> carros;
+    std::vector<Piloto*> pilotos;
 
     dgv();
 
@@ -32,7 +32,7 @@ public:
     int rmcarro(char idcarro);
 
     //gerir pilotos
-    int criarpiloto(std::string nome, int n_dia, int n_mes, int n_ano);
+    int criarpiloto(std::string nome);
 
     //          carregamento de files
     //carrega carros
@@ -40,10 +40,18 @@ public:
     //carrega pilotos
     int carregarP(std::string filename);
 
+    
     //              display everything
     //mostrar todos os carros
     void mostratodosC();
 
+    void mostratodosP();
+
+    void entranocarro(char idcarro,std::string nome);
+
+    void saidocarro(char idcarro);
+
+    int rmpiloto(std::string nome);
     //          save to files
     //
 };

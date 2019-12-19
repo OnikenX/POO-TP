@@ -1,9 +1,9 @@
 #ifndef ANTODROMO_HPP
 #define ANTODROMO_HPP
-#pragma once
- #include "utils.hpp"
- #include <vector>
- 
+
+#include <vector>
+
+#include "carro.hpp"
 //Antodromo
 class atd
 {
@@ -19,10 +19,17 @@ class atd
     //array de carros
     std::vector<Carro*> car_pertencentes;
 
-    //
-
 public:
+
     //se acontecer algum dessastre ao autodromo, todos os carros que lhe pertencem iram ficar com um dano irremediavel
+    atd(int N, int comprimento, std::string nome);
+
+    std::string getnome();
+    int getN();
+    int getcomprimento();
+    void getasstring();
+    void limpaCarros();
+    
 };
 
 #endif //ANTODROMO_HPP

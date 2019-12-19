@@ -33,8 +33,8 @@ um carro pode ficar irremediavelmente danificado, com isto ele fica imediatament
 
 //um carro danificado nao aceita condutor
 
-#include "utils.hpp"
-
+#include "piloto.hpp"
+class Piloto;
 //carro
 class Carro{
 
@@ -53,6 +53,8 @@ class Carro{
         //2 - completamente destruido
         //3 - ele nem deve chegar aqui porque no momento em que chega quer dizer que foi destruido ou inreparavel
     int dano;
+
+    Piloto * condutor;
     
     //autodromo em que pertence
    // atd * esta = NULL;
@@ -74,6 +76,7 @@ public:
     int getmaxspeed();
     std::string stgetmarca();
     std::string getmodelo();
+    
 
     //get as string func
     void getasstring();
@@ -95,7 +98,11 @@ public:
         calculargasto();
         
     }
-    
+    Piloto * getpiloto();
+
+     int meter ( Piloto * aentrar );
+
+     
 
 };
 

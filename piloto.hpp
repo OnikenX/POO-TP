@@ -37,33 +37,26 @@ Piloto Surpresa
 
     -> Fazer piloto original
 */
-
-//
 #ifndef PILOTO_HPP_INCLUDED
 #define PILOTO_HPP_INCLUDED
-
-#pragma once
-
-#include "utils.hpp"
+#include <string>
 #include "carro.hpp"
 
 //piloto
+class Carro;
 class Piloto{
-    
+
     //nome do piloto
     std::string nome;
 
-    //data de nascimento/fabricaçao do piloto
-    int n_dia, n_mes, n_ano;
-
-    Carro * aconduzir = NULL;
+    Carro * aconduzir;
 
 public:
-    Piloto(std::string nome, int n_dia, int n_mes, int n_ano);
+    Piloto(std::string nome);
 
     //meter no carro e tirar do carro
-    int meter ( Carro * ameter );
-    int tirar();
+    int meter ( Carro * ameter); 
+ //   int tirar();
 
 
     //estafucnao da o nome
@@ -71,6 +64,9 @@ public:
     //esta funcao guarda num array de 3 inteiros a data de nacimento do piloto 
     void getnasc(int nasc[3]);
 
+    void getasstring();
+
+    Carro * getcarro();
 
 };
 
