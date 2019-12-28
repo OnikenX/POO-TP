@@ -22,6 +22,8 @@ public:
 
     int cmdlineprinc();
 
+    int campeonatocmd(std::string Aindex);
+
     //remover o autodromo
     int rmautodromo(std::string nome);
     

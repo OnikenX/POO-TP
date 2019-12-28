@@ -94,7 +94,7 @@ int global::cmdlineprinc()
 
     std::string cmd;
 
-    std::string str, letraTipo, tipo, nomep, capacidadeInicial, capacidadeMaxima, marca, modelo, numeroC, comp, nomeA, nomepa, modeloA, nomefich, letraCarro, copia,lixo;
+    std::string str, letraTipo, tipo, nomep, capacidadeInicial, capacidadeMaxima, marca, modelo, numeroC, comp, nomeA, nomepa, modeloA, nomefich, letraCarro, copia,lixo,autocamp;
 
     for (;;)
     {
@@ -104,6 +104,7 @@ int global::cmdlineprinc()
 
         std::istringstream bufi(cmd);
         std::ostringstream oss;
+        std::ostringstream Aindex;
 
         while (bufi >> str)
         {
@@ -255,7 +256,18 @@ int global::cmdlineprinc()
                 // como quem está em que carro e mais o que for relevante saber acerca destas entidades.
                 if (copia == "campeonato")
             {
-                std::cout << "A implementar..." << std::endl;
+                while(bufi >>  autocamp){
+                    int i;
+                    for (auto it = autodromos.begin(); it != autodromos.end(); ++it, ++i)
+                    {
+                        if (autodromos[i]->getnome() == autocamp)
+                        {
+                            Aindex << i;
+                            std::cout << Aindex.str(); // debug
+                        }
+                    }
+                }
+                campeonatocmd(Aindex.str());
             }
             else
                 //|comando para entrar no modo 2| cmdCamp(bufi,str);
@@ -310,6 +322,14 @@ int global::rmautodromo(std::string nome){
             autodromos.erase(it);
             break;
         }
+    }
+    return 0;
+}
+
+int global::campeonatocmd(std::string Aindex){
+    std::vector<atd*> autodromoscamp;
+    for(int i = 0;i < Aindex.size();i++){
+        std::cout << Aindex[i]; //debug
     }
     return 0;
 }

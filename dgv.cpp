@@ -77,14 +77,18 @@ int dgv::rmpiloto(std::string nome)
 int dgv::criarpiloto(std::string nome)
 {
 
+    std::ostringstream nomeaux;
+    static int contador;
     int i = 0;
     auto it = pilotos.begin();
     for (; it != pilotos.end(); ++i, ++it)
     {
-        if (pilotos[i]->getnome() == nome)
-            nome += "1";
+        if (pilotos[i]->getnome() == nome){
+            nomeaux << nome << contador << ' ';
+            nome = nomeaux.str();
+            contador++;
+        }
     }
-
     pilotos.push_back(new Piloto(nome));
     return 0;
 }
@@ -188,23 +192,39 @@ void dgv::entranocarro(char idcarro, std::string nome)
         if (carros[i]->getid() == idcarro)
         {
             idexiste = 1;
+            if (carros[i]->getpiloto() == nullptr)
+            {
+            
             for (auto it = pilotos.begin(); it != pilotos.end(); ++it, ++j)
             {
                 if (pilotos[j]->getnome() == nome)
                 {
                     pexiste = 1;
+                    if (pilotos[j]->getcarro() != nullptr)
+                    {
+                        std::cout << "o piloto ja tem um carro" << std::endl;
+                    }
+                    else{
+                    
                     pilotos[j]->meter(carros[i]);
                     carros[i]->meter(pilotos[j]);
+                    }
                 }
             }
             break;
+            }
+            else
+            {
+                std::cout << "o carro ja tem piloto" << std::endl;
+            }
+            
         }
     }
     if (idexiste == 0)
     {
         std::cout << "o id nao existe\n";
     }
-    if (pexiste == 0)
+    if (pexiste == 0 &&  carros[i]->getpiloto() == nullptr)
     {
         std::cout << "o piloto nao existe\n";
     }
