@@ -48,7 +48,8 @@ class Carro;
 class Piloto{
 
     //nome do piloto
-    std::string nome;
+    std::string nome,tipo="generico";
+    
 
     Carro * aconduzir;
 

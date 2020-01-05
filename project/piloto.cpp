@@ -5,6 +5,7 @@ Piloto::Piloto(std::string nome)
     //verificar se o nome é unico
     this->nome = nome;
     this->aconduzir = NULL;
+
 }
 
 int Piloto::meter(Carro *ameter=NULL)
@@ -39,7 +40,7 @@ std::string Piloto::getnome()
 
 void Piloto::getasstring()
 {
-    std::cout << "O Piloto " << nome;
+    std::cout << "O Piloto " << tipo << " " << nome;
     if (aconduzir == NULL)
         std::cout << " não tem um carro para conduzir." << std::endl;
     else

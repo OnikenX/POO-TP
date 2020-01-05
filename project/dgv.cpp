@@ -1,4 +1,4 @@
-#include "./headers/dgv.hpp"
+#include "headers/dgv.hpp"
 
 dgv::dgv()
 {
@@ -72,7 +72,7 @@ int dgv::rmpiloto(std::string nome)
 
 //              gerir pilotos
 //criacao de um piloto
-int dgv::criarpiloto(std::string nome)
+int dgv::criarpiloto(std::string nome,std::string tipo)
 {
 
     std::ostringstream nomeaux;
@@ -87,8 +87,19 @@ int dgv::criarpiloto(std::string nome)
             contador++;
         }
     }
+    if(tipo == "rapido"){
+        pilotos.push_back(new Rapido(nome));
+        return 0;
+    } else if(tipo == "crazy"){
+        pilotos.push_back(new Crazy(nome));
+        return 0;
+    } else if(tipo == "surpresa"){
+        pilotos.push_back(new Surpresa(nome));
+        return 0;
+    } else{
     pilotos.push_back(new Piloto(nome));
     return 0;
+    }
 }
 
 int dgv::carregarC(std::string filename)
@@ -155,7 +166,7 @@ int dgv::carregarP(std::string filename)
                 oss << nomepa << " ";
                 nomep = oss.str();
             }
-            if ((erro = criarpiloto(nomep)) != 0)
+            if ((erro = criarpiloto(nomep,tipo)) != 0)
             {
                 return erro;
             }

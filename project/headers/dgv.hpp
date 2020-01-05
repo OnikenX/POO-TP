@@ -3,6 +3,7 @@
 #include "utils.hpp"
 #include "carro.hpp"
 #include "piloto.hpp"
+
 /*
         -------------- NOTAS DO JOTA ----------
 DVG
@@ -30,7 +31,7 @@ public:
     int rmcarro(char idcarro);
 
     //gerir pilotos
-    int criarpiloto(std::string nome);
+    int criarpiloto(std::string nome,std::string tipo);
 
     //          carregamento de files
     //carrega carros

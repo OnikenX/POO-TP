@@ -1,9 +1,11 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
-#include "utils.hpp"
 
-#include "autodromo.hpp"
+
+#include <vector>
 #include "dgv.hpp"
+#include "autodromo.hpp"
+
 class global
 {
 
@@ -19,18 +21,16 @@ public:
 
     int cmdlineprinc();
 
-    int campeonatocmd(std::vector<atd*> campautos);
-
+    int campeonatocmd(std::string Aindex);
+        
     //remover o autodromo
     int rmautodromo(std::string nome);
     
-    void listcars();
+
     
     int carregaA(std::string filename);
 
     global(int debug);
-
-    global();
 };
 
 #endif //GLOBAL_H
