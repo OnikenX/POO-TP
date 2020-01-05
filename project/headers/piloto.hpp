@@ -37,9 +37,10 @@ Piloto Surpresa
 
     -> Fazer piloto original
 */
-#ifndef PILOTO_HPP_INCLUDED
-#define PILOTO_HPP_INCLUDED
-#include <string>
+#ifndef PILOTO_HPP
+#define PILOTO_HPP
+
+#include "utils.hpp"
 #include "carro.hpp"
 
 //piloto
@@ -70,4 +71,4 @@ public:
 
 };
 
-#endif // PILOTO_HPP_INCLUDED
+#endif // PILOTO_HPP

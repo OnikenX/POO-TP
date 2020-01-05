@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-
-#include "piloto.hpp"
+#include "headers/piloto.hpp"
 
 Piloto::Piloto(std::string nome)
 {

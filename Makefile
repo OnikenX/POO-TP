@@ -1,14 +1,16 @@
 all: vroom
 
-vroom: dgv.o carro.o piloto.o global.o main.o autodromo.o
-	g++ main.o carro.o global.o dgv.o piloto.o autodromo.o -o vroom $(CXXFLAGS)
+dependecies = project/dgv.o project/carro.o project/piloto.o project/global.o project/main.o project/autodromo.o
 
-%.o: %.cpp
+vroom: $(dependecies)
+	g++ $(dependecies) -o vroom $(CXXFLAGS)
+
+project/%.o: %.cpp
 	$(CXX) -c $< $(CXXFLAGS)
 
 debug: CXXFLAGS += -g -Wall
 debug: vroom
 
 clear:
-	rm *.o vroom
+	rm project/*.o vroom
 

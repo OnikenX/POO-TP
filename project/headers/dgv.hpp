@@ -1,8 +1,6 @@
 #ifndef DVG_HPP
 #define DVG_HPP
-
-#include <vector>
-#include <string>
+#include "utils.hpp"
 #include "carro.hpp"
 #include "piloto.hpp"
 /*

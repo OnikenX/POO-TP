@@ -1,5 +1,5 @@
-#ifndef CARRO_HPP_INCLUDED
-#define CARRO_HPP_INCLUDED
+#ifndef CARRO_HPP
+#define CARRO_HPP
 
 //pode estar parado ou em movimento, quando neste deve ter uma volcidade(m/s)
 
@@ -33,7 +33,9 @@ um carro pode ficar irremediavelmente danificado, com isto ele fica imediatament
 
 //um carro danificado nao aceita condutor
 
+#include "utils.hpp"
 #include "piloto.hpp"
+
 class Piloto;
 //carro
 class Carro{
@@ -106,4 +108,4 @@ public:
 
 };
 
-#endif // CARRO_HPP_INCLUDED
+#endif // CARRO_HPP

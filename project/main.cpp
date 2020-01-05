@@ -1,5 +1,5 @@
-#include "global.hpp"
-#include <string.h>
+#include "./headers/utils.hpp"
+#include "./headers/global.hpp"
 //comparar comandos
 /*bool cmpcmd ( char * longcmd, char * shortcmd, char * compare )
 {
@@ -10,7 +10,7 @@
 int main ( int argc, char ** argv )
 {
     int debug = 0;
-
+    std::string nome;
     if(argc > 1){
         debug = 1;
         std::string debuging = argv[1];
@@ -27,7 +27,13 @@ int main ( int argc, char ** argv )
         a.direcao.carregarP("pilotos");
             a.direcao.carregarC("popos");
             a.carregaA("autodromos");
-            a.
+            //a.listcars();
+            nome = "christian toto ";
+            //std::cout << nome << std::endl;
+            a.direcao.entranocarro('a', nome);
+            nome = "jesus maria ";
+            //std::cout << nome << std::endl;
+            a.direcao.entranocarro('b',nome);
     }
 
     a.cmdlineprinc();

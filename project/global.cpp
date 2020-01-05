@@ -1,8 +1,4 @@
-
-#include <iostream>
-#include <sstream>
-#include <fstream>
-#include "global.hpp"
+#include "headers/global.hpp"
 
 int global::addA(int N, int comprimento, std::string nome)
 {
@@ -38,7 +34,7 @@ void global::mostratodosA()
 
 int global::cmdlineprinc()
 {
-/*
+    /*
         --------  NOTAS -------------
     
     Comandos
@@ -95,9 +91,9 @@ int global::cmdlineprinc()
 
     std::string cmd;
 
-    std::vector<atd*> campautos;
+    std::vector<atd *> campautos;
 
-    std::string str, letraTipo, tipo, nomep, capacidadeInicial, capacidadeMaxima, marca, modelo, numeroC, comp, nomeA, nomepa, modeloA, nomefich, letraCarro, copia,lixo,autocamp;
+    std::string str, letraTipo, tipo, nomep, capacidadeInicial, capacidadeMaxima, marca, modelo, numeroC, comp, nomeA, nomepa, modeloA, nomefich, letraCarro, copia, lixo, autocamp;
 
     for (;;)
     {
@@ -143,7 +139,6 @@ int global::cmdlineprinc()
                     while (bufi >> nomepa)
                     {
                         oss << nomepa << " ";
-                        
                     }
                     nomep = oss.str();
                     direcao.criarpiloto(nomep);
@@ -159,25 +154,25 @@ int global::cmdlineprinc()
                     while (bufi >> modeloA)
                     {
                         oss << modeloA << " ";
-                        
                     }
                     modelo = oss.str();
                     direcao.criarcarro(marca, std::stof(capacidadeMaxima), std::stof(capacidadeInicial), 100, modelo);
-                }else
+                }
+                else
 
                     if (letraTipo == "a")
-                    {
-                        bufi >> numeroC; // numero de carros
-                        // std::stoi( numeroC ); conversor String(s) to Int(i)
-                        bufi >> comp;
-                        // std::stoi( comp ); conversor String(s) to Int(i)
-                        bufi >> nomeA;
+                {
+                    bufi >> numeroC; // numero de carros
+                    // std::stoi( numeroC ); conversor String(s) to Int(i)
+                    bufi >> comp;
+                    // std::stoi( comp ); conversor String(s) to Int(i)
+                    bufi >> nomeA;
 
-                        addA(std::stoi(numeroC), std::stoi(comp), nomeA);
+                    addA(std::stoi(numeroC), std::stoi(comp), nomeA);
 
-                        //std::cout << numeroC << endl << comp << endl << nomeA;
-                    }
-                     //std::cout << capacidadeInicial << endl << capacidadeMaxima << endl << marca << endl << modelo;
+                    //std::cout << numeroC << endl << comp << endl << nomeA;
+                }
+                //std::cout << capacidadeInicial << endl << capacidadeMaxima << endl << marca << endl << modelo;
             }
             else if (copia == "apaga")
             {
@@ -187,7 +182,6 @@ int global::cmdlineprinc()
                     while (bufi >> nomepa)
                     {
                         oss << nomepa << " ";
-                        
                     }
                     nomep = oss.str();
                     direcao.rmpiloto(nomep);
@@ -212,23 +206,141 @@ int global::cmdlineprinc()
                 while (bufi >> nomepa)
                 {
                     oss << nomepa << " ";
-                    
                 }
-                    nomep = oss.str();
-                    direcao.entranocarro(letraCarro[0], nomep);
+                nomep = oss.str();
+                direcao.entranocarro(letraCarro[0], nomep);
             }
             else
                 // <letraCarro> <nomePiloto>
                 if (copia == "saidocarro")
             {
                 bufi >> letraCarro;
-                direcao.saidocarro(letraCarro[0]);                
+                direcao.saidocarro(letraCarro[0]);
             }
             else
                 // <letraCarro>
                 if (copia == "lista")
             {
-                std::cout << std::endl;
+                listcars();
+            }
+            else
+                // - Mostra no ecrã a informação relativa aos carros, aos pilotos e aos autódromos, bem
+                // como quem está em que carro e mais o que for relevante saber acerca destas entidades.
+                if (copia == "campeonato")
+            {
+                f = 0;
+                while (bufi >> autocamp)
+                {
+                    ++f;
+                    i = 0;
+                    for (auto it = autodromos.begin(); it != autodromos.end(); ++it, ++i)
+                    {
+                        if (autodromos[i]->getnome() == autocamp)
+                        {
+                            campautos.push_back(autodromos[i]);
+                        }
+                    }
+                }
+                if (debuging == 1)
+                    std::cout <<  "tamanho do campeonato(start) = " << campautos.size() << std::endl;
+
+                if (f == campautos.size())
+                    campeonatocmd(campautos);
+                else
+                    std::cout << "Um dos campeonatos que digitou não existe." << std::endl;
+                campautos.clear();
+                if (debuging == 1)
+                    std::cout <<  "tamanho do campeonato(deleted) = " << campautos.size() << std::endl;
+
+            }
+            else
+                //|comando para entrar no modo 2| cmdCamp(bufi,str);
+                if (copia == "sair")
+            {
+                return 0;
+            }
+            else
+            {
+                std::cout << "\tO comando não existe" << std::endl;
+                while (bufi >> lixo)
+                {
+                }
+            }
+        }
+    }
+    return 0;
+};
+
+int global::carregaA(std::string filename)
+{
+    std::ifstream myfile(filename);
+    int erro;
+    std::string line, numeroC, comp, nomeA;
+    std::stringstream oss;
+    if (myfile) // same as: if (myfile.good())
+    {
+        while (std::getline(myfile, line)) // same as: while (getline( myfile, line ).good())
+        {
+            std::istringstream bufi(line);
+
+            bufi >> numeroC; // numero de carros
+                             // std::stoi( numeroC ); conversor String(s) to Int(i)
+            bufi >> comp;
+            // std::stoi( comp ); conversor String(s) to Int(i)
+            bufi >> nomeA;
+            if ((erro = addA(std::stoi(numeroC), std::stoi(comp), nomeA)) != 0)
+            {
+                return erro;
+            }
+        }
+        myfile.close();
+    }
+    else
+        std::cout << "insira o nome do file\n";
+
+    return 0;
+};
+
+int global::rmautodromo(std::string nome)
+{
+    int i = 0;
+    for (auto it = autodromos.begin(); it != autodromos.end(); ++it, ++i)
+    {
+        if (autodromos[i]->getnome() == nome)
+        {
+            autodromos.erase(it);
+            break;
+        }
+    }
+    return 0;
+};
+
+int global::campeonatocmd(std::vector<atd *> campautos)
+{
+    int i;
+    if (debuging == 1)
+    {
+        i = 0;
+        for (auto it = campautos.begin(); it != campautos.end(); ++i, ++it)
+        {
+            std::cout << campautos[i]->getnome() << std::endl;
+        }
+    }
+    return 0;
+};
+
+global::global(int debug)
+{
+    debuging = debug;
+};
+
+global::global()
+{
+    debuging = 0;
+};
+
+void global::listcars(){
+    std::cout << std::endl;
                 if (direcao.carros.size() == 0)
                     std::cout << "Não existem carros." << std::endl;
                 else
@@ -253,95 +365,4 @@ int global::cmdlineprinc()
                     mostratodosA();
                 }
                 std::cout << std::endl;
-            }
-            else
-                // - Mostra no ecrã a informação relativa aos carros, aos pilotos e aos autódromos, bem
-                // como quem está em que carro e mais o que for relevante saber acerca destas entidades.
-                if (copia == "campeonato")
-            {
-                f = 0;
-                while(bufi >>  autocamp){
-                    ++f;
-                    i=0;
-                    for (auto it = autodromos.begin();it != autodromos.end(); ++it, ++i)
-                    {
-                        if (autodromos[i]->getnome() == autocamp)
-                        {
-                            campautos.push_back(autodromos[i]);
-                        }
-                    }
-                    
-
-                }
-                if(f == campautos.size)
-                    campeonatocmd(campautos);
-            }
-            else
-                //|comando para entrar no modo 2| cmdCamp(bufi,str);
-                if (copia == "sair")
-            {
-                return 0;
-            }
-            else{
-                std::cout << "\tO comando não existe" << std::endl;
-                while (bufi >> lixo){}
-            }
-        }
-    }
-    return 0;
-};
-
-int global::carregaA(std::string filename){
-    std::ifstream myfile(filename);
-    int erro;
-    std::string line,numeroC,comp,nomeA;
-    std::stringstream oss;
-    if (myfile) // same as: if (myfile.good())
-    {
-        while (std::getline(myfile, line)) // same as: while (getline( myfile, line ).good())
-        {
-            std::istringstream bufi(line);
-
-            bufi >> numeroC; // numero de carros
-                        // std::stoi( numeroC ); conversor String(s) to Int(i)
-            bufi >> comp;
-                        // std::stoi( comp ); conversor String(s) to Int(i)
-            bufi >> nomeA;
-            if ((erro = addA(std::stoi(numeroC), std::stoi(comp), nomeA)) != 0)
-            {
-                return erro;
-            }
-        }
-        myfile.close();
-    }
-    else
-        std::cout << "insira o nome do file\n";
-
-    return 0;
-};
-
-int global::rmautodromo(std::string nome){
-        int i = 0;
-    for (auto it = autodromos.begin(); it != autodromos.end(); ++it, ++i)
-    {
-        if (autodromos[i]->getnome() == nome)
-        {
-            autodromos.erase(it);
-            break;
-            
-        }
-    }
-    return 0;
-};
-
-int global::campeonatocmd(std::vector<atd*> Aindex){
-    std::vector<atd*> autodromoscamp;
-    for(int i = 0;i < Aindex.size();i++){
-        std::cout << Aindex[i]->getnome; //debug
-    }
-    return 0;
-};
-
-global::global(int debug){
-        debuging = debug;
-};
+}

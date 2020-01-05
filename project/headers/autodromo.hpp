@@ -1,9 +1,8 @@
 #ifndef ANTODROMO_HPP
 #define ANTODROMO_HPP
-
-#include <vector>
-
+#include "utils.hpp"
 #include "carro.hpp"
+
 //Antodromo
 class atd
 {

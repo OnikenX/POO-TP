@@ -1,7 +1,5 @@
-#include <iostream>
-#include <sstream>
-#include "dgv.hpp"
-#include <fstream>
+#include "./headers/dgv.hpp"
+
 dgv::dgv()
 {
     for (char i = 'a'; i <= 'z'; ++i)

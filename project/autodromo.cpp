@@ -1,8 +1,4 @@
-#include <string>
-#include <iostream>
-
-#include "autodromo.hpp"
-
+#include "./headers/autodromo.hpp"
 
 atd::atd( int N, int comprimento, std::string nome){
 
