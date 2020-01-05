@@ -13,8 +13,7 @@ public:
     dgv direcao;
     //vetor de autodromos
     std::vector<atd*> autodromos;
-
-    
+    int debuging;
 
     int addA(int N, int comprimento, std::string nome);
 
@@ -31,6 +30,7 @@ public:
     
     int carregaA(std::string filename);
 
+    global(int debug);
 };
 
 #endif //GLOBAL_H

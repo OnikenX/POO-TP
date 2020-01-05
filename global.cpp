@@ -34,12 +34,12 @@ void global::mostratodosA()
     {
         autodromos[i]->getasstring();
     }
-}
+};
 
 int global::cmdlineprinc()
 {
 /*
-       --------  NOTAS -------------
+        --------  NOTAS -------------
     
     Comandos
 
@@ -91,8 +91,11 @@ int global::cmdlineprinc()
         insere();
     }
 */
+    int i, f;
 
     std::string cmd;
+
+    std::vector<atd*> campautos;
 
     std::string str, letraTipo, tipo, nomep, capacidadeInicial, capacidadeMaxima, marca, modelo, numeroC, comp, nomeA, nomepa, modeloA, nomefich, letraCarro, copia,lixo,autocamp;
 
@@ -256,18 +259,22 @@ int global::cmdlineprinc()
                 // como quem está em que carro e mais o que for relevante saber acerca destas entidades.
                 if (copia == "campeonato")
             {
+                f = 0;
                 while(bufi >>  autocamp){
-                    int i;
-                    for (auto it = autodromos.begin(); it != autodromos.end(); ++it, ++i)
+                    ++f;
+                    i=0;
+                    for (auto it = autodromos.begin();it != autodromos.end(); ++it, ++i)
                     {
                         if (autodromos[i]->getnome() == autocamp)
                         {
-                            Aindex << i;
-                            std::cout << Aindex.str(); // debug
+                            campautos.push_back(autodromos[i]);
                         }
                     }
+                    
+
                 }
-                campeonatocmd(Aindex.str());
+                if(f == campautos.size)
+                    campeonatocmd(campautos);
             }
             else
                 //|comando para entrar no modo 2| cmdCamp(bufi,str);
@@ -282,7 +289,7 @@ int global::cmdlineprinc()
         }
     }
     return 0;
-}
+};
 
 int global::carregaA(std::string filename){
     std::ifstream myfile(filename);
@@ -311,7 +318,7 @@ int global::carregaA(std::string filename){
         std::cout << "insira o nome do file\n";
 
     return 0;
-}
+};
 
 int global::rmautodromo(std::string nome){
         int i = 0;
@@ -321,15 +328,20 @@ int global::rmautodromo(std::string nome){
         {
             autodromos.erase(it);
             break;
+            
         }
     }
     return 0;
-}
+};
 
-int global::campeonatocmd(std::string Aindex){
+int global::campeonatocmd(std::vector<atd*> Aindex){
     std::vector<atd*> autodromoscamp;
     for(int i = 0;i < Aindex.size();i++){
-        std::cout << Aindex[i]; //debug
+        std::cout << Aindex[i]->getnome; //debug
     }
     return 0;
-}
+};
+
+global::global(int debug){
+        debuging = debug;
+};
