@@ -1,0 +1,15 @@
+ 
+
+void imprime(WINDOW *outwin, std::vector<std::string> history, char *msg)
+{
+    int i, f;
+    std::string aux = msg;
+    history.push_back(aux);
+    for (; i > history.size() - 4; --i, f++)
+    {
+        mvwprintw(outwin, f, 0, "%s", history[i].c_str());
+    }
+    wrefresh(outwin);
+}
+
+

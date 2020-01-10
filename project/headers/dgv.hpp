@@ -1,8 +1,12 @@
 #ifndef DVG_HPP
 #define DVG_HPP
+
 #include "utils.hpp"
+//#include "crazy.hpp"
 #include "carro.hpp"
+//#include "rapido.hpp"
 #include "piloto.hpp"
+//#include "surpresa.hpp"
 
 /*
         -------------- NOTAS DO JOTA ----------

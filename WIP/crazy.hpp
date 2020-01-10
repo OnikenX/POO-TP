@@ -15,7 +15,8 @@ Tipo Crazy Driver
 #include "piloto.hpp"
 
 class Crazy:public Piloto{
-    float estragar=0.05;
+    float estragar;
+    
 public:
     Crazy(std::string nome);
 };

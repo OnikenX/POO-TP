@@ -72,7 +72,7 @@ int dgv::rmpiloto(std::string nome)
 
 //              gerir pilotos
 //criacao de um piloto
-int dgv::criarpiloto(std::string nome,std::string tipo)
+int dgv::criarpiloto(std::string nome, std::string tipo)
 {
 
     std::ostringstream nomeaux;
@@ -81,24 +81,33 @@ int dgv::criarpiloto(std::string nome,std::string tipo)
     auto it = pilotos.begin();
     for (; it != pilotos.end(); ++i, ++it)
     {
-        if (pilotos[i]->getnome() == nome){
+        if (pilotos[i]->getnome() == nome)
+        {
             nomeaux << nome << contador << ' ';
             nome = nomeaux.str();
             contador++;
         }
     }
-    if(tipo == "rapido"){
+    /*
+    if (tipo == "rapido")
+    {
         pilotos.push_back(new Rapido(nome));
         return 0;
-    } else if(tipo == "crazy"){
+    }
+    else if (tipo == "crazy")
+    {
         pilotos.push_back(new Crazy(nome));
         return 0;
-    } else if(tipo == "surpresa"){
+    }
+    else if (tipo == "surpresa")
+    {
         pilotos.push_back(new Surpresa(nome));
         return 0;
-    } else{
-    pilotos.push_back(new Piloto(nome));
-    return 0;
+    }
+    else*/
+    {
+        pilotos.push_back(new Piloto(nome));
+        return 0;
     }
 }
 
@@ -166,7 +175,7 @@ int dgv::carregarP(std::string filename)
                 oss << nomepa << " ";
                 nomep = oss.str();
             }
-            if ((erro = criarpiloto(nomep,tipo)) != 0)
+            if ((erro = criarpiloto(nomep, tipo)) != 0)
             {
                 return erro;
             }
@@ -203,37 +212,37 @@ void dgv::entranocarro(char idcarro, std::string nome)
             idexiste = 1;
             if (carros[i]->getpiloto() == nullptr)
             {
-            
-            for (auto it = pilotos.begin(); it != pilotos.end(); ++it, ++j)
-            {
-                if (pilotos[j]->getnome() == nome)
+
+                for (auto it = pilotos.begin(); it != pilotos.end(); ++it, ++j)
                 {
-                    pexiste = 1;
-                    if (pilotos[j]->getcarro() != nullptr)
+                    if (pilotos[j]->getnome() == nome)
                     {
-                        std::cout << "o piloto ja tem um carro" << std::endl;
-                    }
-                    else{
-                    
-                    pilotos[j]->meter(carros[i]);
-                    carros[i]->meter(pilotos[j]);
+                        pexiste = 1;
+                        if (pilotos[j]->getcarro() != nullptr)
+                        {
+                            std::cout << "o piloto ja tem um carro" << std::endl;
+                        }
+                        else
+                        {
+
+                            pilotos[j]->meter(carros[i]);
+                            carros[i]->meter(pilotos[j]);
+                        }
                     }
                 }
-            }
-            break;
+                break;
             }
             else
             {
                 std::cout << "o carro ja tem piloto" << std::endl;
             }
-            
         }
     }
     if (idexiste == 0)
     {
         std::cout << "o id nao existe\n";
     }
-    if (pexiste == 0 &&  carros[i]->getpiloto() == nullptr)
+    if (pexiste == 0 && carros[i]->getpiloto() == nullptr)
     {
         std::cout << "o piloto nao existe\n";
     }
@@ -252,8 +261,10 @@ void dgv::saidocarro(char idcarro)
             {
                 ponteiro->meter(NULL);
                 carros[i]->meter(NULL);
-            }else{
-                std::cout << "este carro nao tem piloto." << std::endl; 
+            }
+            else
+            {
+                std::cout << "este carro nao tem piloto." << std::endl;
             }
             break;
         }

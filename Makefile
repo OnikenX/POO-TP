@@ -1,12 +1,13 @@
 all: vroom
 
-dependecies = project/dgv.o project/carro.o project/piloto.o project/global.o project/main.o project/autodromo.o
+dependecies = project/*.cpp
+#project/surpresa.cpp project/rapido.cpp project/crazy.cpp
 
 vroom: $(dependecies)
-	g++ $(dependecies) -o vroom $(CXXFLAGS)
+	g++ $(dependecies) -o vroom $(CXXFLAGS) -lncurses
 
-project/%.o: %.cpp
-	$(CXX) -c $< $(CXXFLAGS)
+project/%.o: project/%.cpp
+	$(CXX) -c $< $(CXXFLAGS) -lncurses
 
 debug: CXXFLAGS += -g -Wall
 debug: vroom
